@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="navigation2.MVVM.Pages.NewPage3"
+             Title="NewPage3">
+    <VerticalStackLayout HorizontalOptions="Center">
+        <Entry Placeholder="ex. Lebron" x:Name="name" />
+        <Entry Placeholder="ex. James" x:Name="surname" />
+        <Button Text="Confirm crazycattle3d addiction " Clicked="Button_Clicked" />
+    </VerticalStackLayout>
+</ContentPage>
+    

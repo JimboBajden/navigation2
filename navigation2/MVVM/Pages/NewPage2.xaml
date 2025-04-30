@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="navigation2.MVVM.Pages.NewPage2"
+             Title="NewPage2">
+    <VerticalStackLayout MaximumWidthRequest="255" MinimumWidthRequest="128">
+        <Image Source="glorbo.jpg" Aspect="AspectFit" Margin="10,10,10,10"/>
+        <Entry Margin="10,0,10,10" Placeholder="ex. John" x:Name="entryName" />
+        <Entry Margin="10,0,10,10" Placeholder="ex. Doe" x:Name="entrySurname" />
+        <Button Margin="10,0,10,10" Text="Confirm" Clicked="Button_Clicked" />
+    </VerticalStackLayout>
+</ContentPage>
+  

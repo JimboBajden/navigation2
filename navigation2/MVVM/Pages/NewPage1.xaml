@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="navigation2.MVVM.Pages.NewPage1"
+             Title="NewPage1">
+    <VerticalStackLayout MaximumWidthRequest="255" MinimumWidthRequest="128">
+        <ScrollView>
+            <VerticalStackLayout>
+                <CollectionView x:Name="CensusDisplay" ItemsSource="{Binding census}" SelectionChanged="CensusDisplay_SelectionChanged" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding name}" Padding="0,0,5,0" />
+                                <Label Text="{Binding surname}"/>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Button Text="Add new Entry" Clicked="Button_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
