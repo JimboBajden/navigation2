@@ -2,6 +2,7 @@ using navigation2.MVVM.Models;
 using System.Collections.ObjectModel;
 using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
+using System.Windows.Input;
 namespace navigation2.MVVM.Pages;
 public partial class NewPage1 : ContentPage
 {
@@ -44,6 +45,17 @@ public partial class NewPage1 : ContentPage
             Navigation.PushAsync(new NewPage3(census, CensusDisplay));
 
     }
+    public ICommand Test {  get; set; } 
+    
+    private void MenuFlyoutItem_Clicked(object sender, EventArgs e)
+    {
+        var clickedItem = sender as MenuFlyoutItem;
+        var contact = clickedItem?.BindingContext as Person;
 
+            Navigation.PushAsync(new NewPage2(contact, census, CensusDisplay));
+
+        
+        CensusDisplay.SelectedItem = null;
+    }
 }
 
