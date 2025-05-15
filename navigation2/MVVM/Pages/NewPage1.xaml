@@ -6,9 +6,27 @@
     <VerticalStackLayout MaximumWidthRequest="255" MinimumWidthRequest="128">
         <ScrollView>
             <VerticalStackLayout>
-                <CollectionView x:Name="CensusDisplay" ItemsSource="{Binding census}" SelectionMode="Single">
+                <Button Text="usun je" Clicked="Button_Clicked_1"></Button>
+                <CollectionView x:Name="CensusDisplay" ItemsSource="{Binding census}" SelectionMode="Multiple" SelectionChanged="CensusDisplay_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
+                            <Border>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="White" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="Red" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
                             <HorizontalStackLayout>
                                 <Label Text="{Binding name}" Padding="0,0,5,0" />
                                 <Label Text="{Binding surname}"/>
@@ -23,6 +41,7 @@
 
 
                             </HorizontalStackLayout>
+                            </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

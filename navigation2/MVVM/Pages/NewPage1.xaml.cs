@@ -1,13 +1,15 @@
 using navigation2.MVVM.Models;
 using System.Collections.ObjectModel;
-using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 using System.Windows.Input;
+using System.Linq;
 namespace navigation2.MVVM.Pages;
 public partial class NewPage1 : ContentPage
 {
 	ObservableCollection<Person> census { get; set; } = new ObservableCollection<Person>();
-	public NewPage1()
+    List<Person> tmp = new List<Person>();
+
+    public NewPage1()
 	{
 		InitializeComponent();
         census.Add(new Person() { name = "Tralalelo", surname = "Tralala"});
@@ -42,6 +44,23 @@ public partial class NewPage1 : ContentPage
 
         
         CensusDisplay.SelectedItem = null;
+    }
+
+    private void Button_Clicked_1(object sender, EventArgs e)
+    {
+        foreach(Person skibidi in tmp)
+        {
+            census.Remove(skibidi);
+        }
+        tmp.Clear();
+    }
+
+    private void CensusDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var selection = ((CollectionView)sender);
+        tmp = selection.SelectedItems.Cast<Person>().ToList();
+        
+
     }
 }
 
